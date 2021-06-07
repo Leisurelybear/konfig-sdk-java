@@ -9,6 +9,7 @@ package ml.zhangxujie.konfig.example;
 import ml.zhangxujie.konfig.KonfigClient;
 import ml.zhangxujie.konfig.dto.konfig.KonfigCollection;
 
+//获取配置的Demo
 public class KonfigGetExample {
 
     public static void main(String[] args) {

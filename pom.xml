@@ -6,7 +6,7 @@
 
     <groupId>ml.zhangxujie</groupId>
     <artifactId>konfig-sdk-java</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <dependencies>
 

@@ -11,26 +11,36 @@ import ml.zhangxujie.konfig.event.KonfigEventListener;
 import ml.zhangxujie.konfig.event.KonfigEventObject;
 import ml.zhangxujie.konfig.event.KonfigEventObjectSource;
 
+//使用监听器的Demo
 public class EventListenerExample {
 
     public static void main(String[] args) {
         KonfigClient client = KonfigClient.getKonfigClient("test-e1");
 
-        client.addEventListener(19, new KonfigEventListener() {
-            @Override
-            public void OnChanged(KonfigEventObject konfigEventObject) {
-                KonfigEventObjectSource source = konfigEventObject.getSource();
-                System.out.println("19:test: onChanged! - " + source);
-            }
-        });
-
         client.addEventListener(20, new KonfigEventListener() {
             @Override
             public void OnChanged(KonfigEventObject konfigEventObject) {
-                KonfigEventObjectSource source = konfigEventObject.getSource();
-                System.out.println("20:test: onChanged! - " + source);
+
+                System.out.println(konfigEventObject);
             }
         });
+
+
+//        client.addEventListener(19, new KonfigEventListener() {
+//            @Override
+//            public void OnChanged(KonfigEventObject konfigEventObject) {
+//                KonfigEventObjectSource source = konfigEventObject.getSource();
+//                System.out.println("19:test: onChanged! - " + source);
+//            }
+//        });
+
+//        client.addEventListener(20, new KonfigEventListener() {
+//            @Override
+//            public void OnChanged(KonfigEventObject konfigEventObject) {
+//                KonfigEventObjectSource source = konfigEventObject.getSource();
+//                System.out.println("20:test: onChanged! - " + source);
+//            }
+//        });
 
 //        Thread t1 = new Thread(){
 //            @Override
