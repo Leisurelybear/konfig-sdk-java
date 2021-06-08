@@ -8,6 +8,35 @@
     <artifactId>konfig-sdk-java</artifactId>
     <version>1.0</version>
 
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <tag>master</tag>
+        <url>git@github.com:Leisurelybear/konfig-sdk-java.git</url>
+        <connection>scm:git:git@github.com:Leisurelybear/konfig-sdk-java.git</connection>
+        <developerConnection>scm:git:git@github.com:Leisurelybear/konfig-sdk-java.git</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <name>Jason Zhang</name>
+            <email>zhangxujie2018@gmail.com</email>
+            <organization>Leisurelybear</organization>
+        </developer>
+    </developers>
+
+
+
     <dependencies>
 
 <!--        kafka-->
