@@ -9,7 +9,10 @@ package ml.zhangxujie.konfig.event;
 import lombok.Data;
 import lombok.ToString;
 import ml.zhangxujie.konfig.dto.KonfigDataStatus;
+import ml.zhangxujie.konfig.dto.konfig.Konfig;
 import ml.zhangxujie.konfig.dto.konfig.KonfigCollection;
+
+import java.util.Map;
 
 @Data
 @ToString
@@ -23,6 +26,9 @@ public class KonfigEventObjectSource {
 
     //配置集合
     private KonfigCollection konfigCollection;
+
+    //配置列表Map
+    private Map<String, Konfig> configMap;
 
 
 }

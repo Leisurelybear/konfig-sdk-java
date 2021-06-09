@@ -7,6 +7,7 @@
 package ml.zhangxujie.konfig.example;
 
 import ml.zhangxujie.konfig.KonfigClient;
+import ml.zhangxujie.konfig.dto.konfig.Konfig;
 import ml.zhangxujie.konfig.event.KonfigEventListener;
 import ml.zhangxujie.konfig.event.KonfigEventObject;
 import ml.zhangxujie.konfig.event.KonfigEventObjectSource;
@@ -20,8 +21,13 @@ public class EventListenerExample {
         client.addEventListener(20, new KonfigEventListener() {
             @Override
             public void OnChanged(KonfigEventObject konfigEventObject) {
+                String ip = konfigEventObject.getKonfigCollection().getConfigList().get(2).getValue();
+                System.out.println(ip);
 
-                System.out.println(konfigEventObject);
+                Konfig konfig = konfigEventObject.getKonfig("hello");
+                System.out.println(konfig);
+
+//                System.out.println(konfigEventObject);
             }
         });
 

@@ -7,6 +7,7 @@
 package ml.zhangxujie.konfig.event;
 
 import ml.zhangxujie.konfig.dto.KonfigDataStatus;
+import ml.zhangxujie.konfig.dto.konfig.Konfig;
 import ml.zhangxujie.konfig.dto.konfig.KonfigCollection;
 
 import java.util.EventObject;
@@ -37,6 +38,10 @@ public class KonfigEventObject extends EventObject {
 
     public KonfigCollection getKonfigCollection(){
         return this.source.getKonfigCollection();
+    }
+
+    public Konfig getKonfig(String key){
+        return this.source.getConfigMap().get(key);
     }
 
     public boolean isOnline(){

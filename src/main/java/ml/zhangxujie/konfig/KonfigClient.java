@@ -12,8 +12,10 @@ import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import ml.zhangxujie.konfig.common.ConfigHelper;
 import ml.zhangxujie.konfig.common.Const;
+import ml.zhangxujie.konfig.common.KonfigUtil;
 import ml.zhangxujie.konfig.dto.KonfigDataStatus;
 import ml.zhangxujie.konfig.dto.MqPollData;
+import ml.zhangxujie.konfig.dto.konfig.Konfig;
 import ml.zhangxujie.konfig.event.KonfigEventObject;
 import ml.zhangxujie.konfig.event.KonfigEventListener;
 import ml.zhangxujie.konfig.dto.konfig.KonfigCollection;
@@ -23,8 +25,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
 import java.time.Duration;
-import java.util.Arrays;
-import java.util.Properties;
+import java.util.*;
 
 //@NoArgsConstructor
 @Slf4j
@@ -98,6 +99,17 @@ public class KonfigClient {
         return konfigCollection;
     }
 
+    /**
+     * @Author: Jason
+     * @Description: 把配置列表转换成HashMap，方便用户获取配置
+     * @Param configList: konfigList
+     * @return: 返回配置 key-value 构成的map
+     **/
+    public Map<String, Konfig> convertKonfigListToMap(List<Konfig> configList) {
+
+        return KonfigUtil.parseKonfigMap(configList);
+    }
+
 
     /**
      * @Author: Jason
@@ -145,6 +157,7 @@ public class KonfigClient {
                     }
                     source.setTimestamp(pollData.getTimestamp());
                     source.setKonfigCollection(konfigCollection);
+                    source.setConfigMap(KonfigUtil.parseKonfigMap(konfigCollection.getConfigList()));
 
                     //创建事件对象
                     KonfigEventObject konfigEventObject = new KonfigEventObject(source);
