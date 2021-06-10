@@ -1,2 +1,3 @@
 # Project exclude paths
 /target/
+/out/artifacts/konfig_sdk_java_jar/
