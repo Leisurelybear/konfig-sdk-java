@@ -7,16 +7,16 @@
 package ml.zhangxujie.konfig.example;
 
 import ml.zhangxujie.konfig.KonfigClient;
-import ml.zhangxujie.konfig.dto.konfig.Konfig;
 import ml.zhangxujie.konfig.dto.konfig.KonfigCollection;
-
 import java.util.Map;
 
 //获取配置的Demo
 public class KonfigGetExample {
+    //1. 首先定义一个唯一appId
+    public static final String appId = "test";
 
     public static void main(String[] args) {
-        KonfigClient client = KonfigClient.getKonfigClient("test");
+        KonfigClient client = KonfigClient.getKonfigClient(appId);
         KonfigCollection konfigCollection = client.getConfig(20);
 
         System.out.println(konfigCollection.toString());
